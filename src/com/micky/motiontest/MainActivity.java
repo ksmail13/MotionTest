@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements MoveSensorDataChangeListener{
@@ -27,6 +28,9 @@ public class MainActivity extends Activity implements MoveSensorDataChangeListen
 //		point_view = (TextView)findViewById(R.id.point_view);
 		point_view = new TextView(this);
 		point_view.setText("Get OFF!");
+		point_view.setLayoutParams(new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		
+		((RelativeLayout)findViewById(R.id.main_view)).addView(point_view);
 		
 		sensorMgr = new MoveSensorManager(this, this);
 		
